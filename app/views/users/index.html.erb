@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Candidates</h5>
+    </div>
+
+    <div class="col-md-6 mb-2">
+      <a href="<%= new_resume_path %>" class="text-white">
+        <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal"><i class="mr-1 fas fa-plus"></i>Add Resume</button>
+      </a>
+    </div>
+  </div>
+
+    <div class="col-12 p-1">
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @resumes.each do |resume| %>
+          <tr>
+            <td>
+		          <%= link_to resume.file_name, url_for(resume.file) %>
+            </td>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+ $('#myModal').modal()
+</script>

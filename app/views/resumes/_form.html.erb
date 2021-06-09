@@ -1,0 +1,24 @@
+<%= form_with(model: resume, local: true) do |form| %>
+  <% if resume.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+
+      <ul>
+      <% resume.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :upload_resume %>
+    <%= form.file_field :file %>
+  </div>
+
+  <br />
+
+  <div class="actions">
+    <%= form.submit :Submit, class: 'btn btn-primary'%>
+  </div>
+<% end %>

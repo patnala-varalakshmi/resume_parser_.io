@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 p-1"> 
+      <p id="notice"><%= notice %></p>
+      <h5>Resumes</h5>
+      <%= render 'form', resume: Resume.new %>
+    </div>
+    <div class="col-12 p-1">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">File</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>1</td>
+            <td><%= user.name %></td>
+            <td>
+              <%= link_to user.resume.file_name, url_for(user.resume.file) %>
+            </td>
+            <td><%= user.email %></td>
+            <td><%= user.phone_number %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
